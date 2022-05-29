@@ -8,7 +8,7 @@ public interface ProductRepository {
 	 public void addProduct(Product product);
 	 public List<Product> getProducts();
 	 public Product getProductById(String id);
-	 public Product deleteById(String id);
-	 public Product updateById(Product newproduct);
+	 public void deleteById(String id);
+	 public void updateById(Product newproduct);
 	 
 }

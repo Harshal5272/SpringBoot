@@ -34,29 +34,29 @@ public class ProductRepositoryImpl implements ProductRepository {
 	}
 
 	@Override
-	public Product deleteById(String id) {
+	public void deleteById(String id) {
 		int index = 0;
 		for(Product product: products) {
 			if(product.getProductId().equals(id)) {
 				 products.remove(index);
-				 return product;
+				
 			}
 			index =index+1;
 		}
-		return null;
+		
 	}
 
 	@Override
-	public Product updateById(Product newproduct) {
+	public void updateById(Product newproduct) {
 		int index = 0;
 		for(Product product2: products) {
 			if(product2.getProductId().equals(newproduct.getProductId())) {
 				 products.set(index, newproduct);
-				 return newproduct;
+				
 			}
 			index =index+1;
 		}
-		return null;
+
 	}
 
 	

@@ -3,6 +3,7 @@ package com.sky.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import com.sky.service.ProductService;
 public class ProductController {
 
 	@Autowired
+	
 	private ProductService productService;
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET,consumes = "application/json", produces ="application/json")
@@ -38,12 +40,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/product/{id}", method = RequestMethod.DELETE,consumes = "application/json", produces ="application/json")
-	public @ResponseBody Product deleteById(@PathVariable("id") String id) {
-	return productService.deleteById(id);
+	public @ResponseBody void deleteById(@PathVariable("id") String id) {
+	 productService.deleteById(id);
 	}
 	
 	@RequestMapping(value = "/product", method = RequestMethod.PUT,consumes = "application/json", produces ="application/json")
-	public @ResponseBody Product updateById(@RequestBody Product product) {
-	return productService.updateById(product);
+	public @ResponseBody void updateById(@RequestBody Product product) {
+	 productService.updateById(product);
 	}
 }
